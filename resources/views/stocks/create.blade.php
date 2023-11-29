@@ -35,8 +35,8 @@
             <input type="text" class="form-control" id="txtname" placeholder="Enter Supplier Name" name="txtname">
         </div>
         <div class="form-group">
-            <label for="txtcode">Quantity:</label>
-            <input type="number" class="form-control" id="txtcode" placeholder="Enter Qauntity" name="txtquantity">
+            <label for="txtquantity">Quantity:</label>
+            <input type="number" class="form-control" id="txtquantity" placeholder="Enter Qauntity" name="txtquantity">
         </div>	      
         <button type="submit" class="btn btn-default">Submit</button>
     </form>

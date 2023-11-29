@@ -13,8 +13,7 @@ class StocksController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {      
-       
+    { 
 		$stocks= Stocks::leftJoin('tbl_products', 'tbl_products.id', '=', 'tbl_stocks.product_id')              		
               		->get(['tbl_products.name as product_name', 'tbl_stocks.*']);		 
         return view('stocks.list', compact('stocks'));
@@ -62,12 +61,9 @@ class StocksController extends Controller
     public function show(Stocks $stocks,$id)
     {
           //$stocks = Stocks::find($id);
-		 
-		  	$stocks= Stocks::leftjoin('tbl_categories', 'tbl_categories.id', '=', 'tbl_stocks.category')
-              		->leftjoin('tbl_users', 'tbl_users.id', '=', 'tbl_stocks.user_id')
-              		->get(['tbl_categories.name as cat_name', 'tbl_users.name as user_name', 'tbl_stocks.*'])->where('id', $id)->first();
-					
-		 
+		  
+		 $stocks= Stocks::leftJoin('tbl_products', 'tbl_products.id', '=', 'tbl_stocks.product_id')              		
+              		->get(['tbl_products.name as product_name', 'tbl_stocks.*'])->where('id', $id)->first();	 
 		  
         return view('stocks.view',compact('stocks'));
     }
@@ -80,12 +76,10 @@ class StocksController extends Controller
      */
     public function edit(Stocks $stocks,$id)
     {
-         $stocks = Stocks::leftjoin('tbl_categories', 'tbl_categories.id', '=', 'tbl_stocks.category')
-              		->leftjoin('tbl_users', 'tbl_users.id', '=', 'tbl_stocks.user_id')
-              		->get(['tbl_categories.name as cat_name', 'tbl_categories.id as cat_id','tbl_users.name as user_name','tbl_users.id as u_id', 'tbl_stocks.*'])->where('id', $id)->first();
-		 $users =  Users::all();
-		$categories =  Categories::all();
-         return view('stocks.edit',compact('stocks','users','categories'));
+         $stocks = Stocks::leftJoin('tbl_products', 'tbl_products.id', '=', 'tbl_stocks.product_id')              		
+              		->get(['tbl_products.name as product_name','tbl_products.id as product_id', 'tbl_stocks.*'])->where('id', $id)->first();
+		$products =  Products::all();					
+         return view('stocks.edit',compact('stocks','products'));
     }
 
     /**
@@ -98,39 +92,13 @@ class StocksController extends Controller
     public function update(Request $request, Stocks $stocks,$id)
     {
               $request->validate([
-            'txtusers'=>'required',
-            'txtcat'=> 'required',
-            'txtname' => 'required',
-			'txtcode' => 'required',
-			'txtcost' => 'required',
-			'txtdesc' => 'required'
+            'txtproduct'=>'required'
             
         ]);
-
-        $stocks = Stocks::find($id);
-        if($request->hasfile('image'))
-        {     
-       
-            $file = $request->file('image');           
-            $extenstion = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extenstion;
-            $file->move('uploads/stocks/', $filename);
-			$stocks->image = $filename;
-           
-        } 
-
-
-        $stocks->user_id = $request->get('txtusers');
-        $stocks->category = $request->get('txtcat');
-        $stocks->cost = $request->get('txtcost');
-		$stocks->name = $request->get('txtname');
-		$stocks->code = $request->get('txtcode');
-		$stocks->description = $request->get('txtdesc');
-         		 
-
-       // $users->image = $request->get('txtimage'); 
+        $stocks = Stocks::find($id);          
+		$stocks->product_id = $request->get('txtproduct');
         $stocks->update(); 
-        return redirect('/stocks')->with('success', 'Product updated successfully');
+        return redirect('/stocks')->with('success', 'Stock updated successfully');
     }
 
     /**

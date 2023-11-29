@@ -1,48 +1,37 @@
-@extends('users.layouts.app')
+@extends('stocks.layouts.app')
  
 @section('content')
     <div class="row">
         <div class="col-lg-11">
-                <h2>Detail for {{ $products->name }}</h2>
+                <h2>Detail for {{ $stocks->name }}</h2>
         </div>
         <div class="col-lg-1">
-            <a class="btn btn-primary" href="{{ url('products') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ url('stocks') }}"> Back</a>
         </div>
     </div>
     <table class="table table-bordered">
         <tr>
-            <th>USER:</th>
-            <td>{{ $products->user_name }}</td>
+            <th>Product Name:</th>
+            <td>{{ $stocks->product_name }}</td>
         </tr>
         <tr>
-            <th>Product Name:</th>
-            <td>{{ $products->name }}</td>
+            <th>Supplier Name:</th>
+            <td>{{ $stocks->supplier_name }}</td>
         </tr>
 		  <tr>
-            <th>Category:</th>
-            <td>{{ $products->cat_name }}</td>
+            <th>Quantity:</th>
+            <td>{{ $stocks->quantity }}</td>
+        </tr>
+		 <tr>
+            <th>Created at:</th>
+            <td>{{ $stocks->created_at }}</td>
+        </tr>
+		 <tr>
+            <th>Updated at:</th>
+            <td>{{ $stocks->updated_at }}</td>
         </tr>
 		
-		 <tr>
-            <th>Code:</th>
-            <td>{{ $products->code }}</td>
-        </tr>
-		 <tr>
-            <th>Cost:</th>
-            <td>{{ $products->cost }}</td>
-        </tr>
-		 <tr>
-            <th>Description:</th>
-            <td>{{ $products->description }}</td>
-        </tr>
-          <tr>
-            <th>Image:</th>
-            <td><img src="{{ asset('uploads/products/')}}/{{$products->image }}" width="300">
-
-
-
-            </td>
-        </tr>
+		 
        
  
     </table>
