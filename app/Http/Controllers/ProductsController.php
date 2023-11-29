@@ -50,7 +50,7 @@ class ProductsController extends Controller
             $file->move('uploads/products/', $filename);
             //$users->image = $filename;
         } 
-        $products = new Users([
+        $products = new Products([
             'name' => $request->get('txtname'),
             'email'=> $request->get('txtemail'),
             'password'=> $request->get('txtpassword'),
@@ -114,10 +114,10 @@ class ProductsController extends Controller
 
 
         $products = Products::find($id);
-        $users->name = $request->get('txtname');
-        $users->email = $request->get('txtemail');
-        $users->password = $request->get('txtpassword');
-         $users->image = $filename;
+        $products->name = $request->get('txtname');
+        $products->email = $request->get('txtemail');
+        $products->password = $request->get('txtpassword');
+         $products->image = $filename;
 
        // $users->image = $request->get('txtimage'); 
         $products->update(); 
