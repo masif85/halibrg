@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-11">
-            <h2>Update Student</h2>
+            <h2>Update</h2>
         </div>
         <div class="col-lg-1">
             <a class="btn btn-primary" href="{{ url('users') }}"> Back</a>
