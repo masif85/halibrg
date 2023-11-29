@@ -10,5 +10,6 @@ class Products extends Model
      protected $table = "tbl_products";
      protected $fillable = ['user_id','category','name','code','cost','description','image',
     ];
+	
     //use HasFactory;
 }

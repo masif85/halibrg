@@ -43,7 +43,7 @@ class UsersController extends Controller
             'txtpassword' => 'required',
             'image' => 'required'
         ]);
-
+$filename="";
 
          if($request->hasfile('image'))
         {                       
@@ -104,23 +104,20 @@ class UsersController extends Controller
             //,'txtimage' => 'required'
         ]); 
 
+$users = Users::find($id);
         if($request->hasfile('image'))
-        {     
-       
+        {            
             $file = $request->file('image');           
             $extenstion = $file->getClientOriginalExtension();
             $filename = time().'.'.$extenstion;
             $file->move('uploads/users/', $filename);
+			$users->image = $filename;
            
         } 
-
-
-
-        $users = Users::find($id);
+        
         $users->name = $request->get('txtname');
         $users->email = $request->get('txtemail');
-        $users->password = $request->get('txtpassword');
-         $users->image = $filename;
+        $users->password = $request->get('txtpassword');         
 
        // $users->image = $request->get('txtimage'); 
         $users->update(); 

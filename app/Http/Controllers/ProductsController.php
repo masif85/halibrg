@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 use App\Models\Products;
+use App\Models\Users;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 class ProductsController extends Controller
 {
@@ -12,7 +14,11 @@ class ProductsController extends Controller
     public function index()
     {
       
-        $products =  Products::all();
+        //$products =  Products::all();
+		$products= Products::leftJoin('tbl_categories', 'tbl_categories.id', '=', 'tbl_products.category')
+              		->leftJoin('tbl_users', 'tbl_users.id', '=', 'tbl_products.user_id')
+              		->get(['tbl_categories.name as cat_name', 'tbl_users.name as user_name', 'tbl_products.*']);
+		 
         return view('products.list', compact('products','products'));
     }
 
@@ -23,7 +29,11 @@ class ProductsController extends Controller
      */
     public function create()
     {
-         return view('products.create');
+		
+		$products =  Products::all();
+		$users =  Users::all();
+		$categories =  Categories::all();
+        return view('products.create', compact('products','users','categories'));
     }
 
     /**
@@ -35,13 +45,16 @@ class ProductsController extends Controller
     public function store(Request $request)
     {            
         $request->validate([
-            'txtname'=>'required',
-            'txtemail'=> 'required',
-            'txtpassword' => 'required',
+            'txtusers'=>'required',
+            'txtcat'=> 'required',
+            'txtname' => 'required',
+			'txtcode' => 'required',
+			'txtcost' => 'required',
+			'txtdesc' => 'required',
             'image' => 'required'
         ]);
 
-
+$filename ="";
          if($request->hasfile('image'))
         {                       
             $file = $request->file('image');           
@@ -51,9 +64,12 @@ class ProductsController extends Controller
             //$users->image = $filename;
         } 
         $products = new Products([
-            'name' => $request->get('txtname'),
-            'email'=> $request->get('txtemail'),
-            'password'=> $request->get('txtpassword'),
+            'user_id' => $request->get('txtusers'),
+            'category'=> $request->get('txtcat'),
+            'cost'=> $request->get('txtcost'),
+			 'name' => $request->get('txtname'),
+            'code'=> $request->get('txtcode'),
+            'description'=> $request->get('txtdesc'),
             'image'=>$filename
         ]);
 
@@ -67,9 +83,16 @@ class ProductsController extends Controller
      * @param  \App\Models\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function show(Products $products)
+    public function show(Products $products,$id)
     {
-          $products = Products::find($id);
+          //$products = Products::find($id);
+		 
+		  	$products= Products::leftjoin('tbl_categories', 'tbl_categories.id', '=', 'tbl_products.category')
+              		->leftjoin('tbl_users', 'tbl_users.id', '=', 'tbl_products.user_id')
+              		->get(['tbl_categories.name as cat_name', 'tbl_users.name as user_name', 'tbl_products.*'])->where('id', $id)->first();
+					
+		 
+		  
         return view('products.view',compact('products'));
     }
 
@@ -79,10 +102,14 @@ class ProductsController extends Controller
      * @param  \App\Models\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function edit(Products $products)
+    public function edit(Products $products,$id)
     {
-         $products = Products::find($id);
-         return view('products.edit',compact('products'));
+         $products = Products::leftjoin('tbl_categories', 'tbl_categories.id', '=', 'tbl_products.category')
+              		->leftjoin('tbl_users', 'tbl_users.id', '=', 'tbl_products.user_id')
+              		->get(['tbl_categories.name as cat_name', 'tbl_categories.id as cat_id','tbl_users.name as user_name','tbl_users.id as u_id', 'tbl_products.*'])->where('id', $id)->first();
+		 $users =  Users::all();
+		$categories =  Categories::all();
+         return view('products.edit',compact('products','users','categories'));
     }
 
     /**
@@ -92,15 +119,19 @@ class ProductsController extends Controller
      * @param  \App\Models\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Products $products)
+    public function update(Request $request, Products $products,$id)
     {
-                $request->validate([
-            'txtname'=>'required',
-            'txtemail'=> 'required',
-            'txtpassword' => 'required'
-            //,'txtimage' => 'required'
-        ]); 
+              $request->validate([
+            'txtusers'=>'required',
+            'txtcat'=> 'required',
+            'txtname' => 'required',
+			'txtcode' => 'required',
+			'txtcost' => 'required',
+			'txtdesc' => 'required'
+            
+        ]);
 
+        $products = Products::find($id);
         if($request->hasfile('image'))
         {     
        
@@ -108,16 +139,18 @@ class ProductsController extends Controller
             $extenstion = $file->getClientOriginalExtension();
             $filename = time().'.'.$extenstion;
             $file->move('uploads/products/', $filename);
+			$products->image = $filename;
            
         } 
 
 
-
-        $products = Products::find($id);
-        $products->name = $request->get('txtname');
-        $products->email = $request->get('txtemail');
-        $products->password = $request->get('txtpassword');
-         $products->image = $filename;
+        $products->user_id = $request->get('txtusers');
+        $products->category = $request->get('txtcat');
+        $products->cost = $request->get('txtcost');
+		$products->name = $request->get('txtname');
+		$products->code = $request->get('txtcode');
+		$products->description = $request->get('txtdesc');
+         		 
 
        // $users->image = $request->get('txtimage'); 
         $products->update(); 
@@ -130,7 +163,7 @@ class ProductsController extends Controller
      * @param  \App\Models\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Products $products)
+    public function destroy(Products $products,$id)
     {
         $products = Products::find($id);
         $products->delete();

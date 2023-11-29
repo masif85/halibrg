@@ -1,12 +1,12 @@
-@extends('users.layouts.app')
+@extends('stocks.layouts.app')
  
 @section('content')
     <div class="row">
         <div class="col-lg-11">
-                <h2>Products</h2>
+                <h2>Stocks</h2>
         </div>
         <div class="col-lg-1">
-            <a class="btn btn-success" href="products/create">Add</a>
+            <a class="btn btn-success" href="stocks/create">Add</a>
         </div>
     </div>
  
@@ -19,27 +19,25 @@
     <table class="table table-bordered">
         <tr>
             <th>No</th>
-            <th>Category</th>
-            <th>Name</th>
-            <th>Code</th>
-           <th>Price</th>
+            <th>Product</th>
+            <th>Supplier</th>
+            <th>Quantity</th>           
             <th width="280px">Action</th>
         </tr>
         @php
             $i = 0;
         @endphp
-        @foreach ($products as $product)
+        @foreach ($stocks as $stock)
    
             <tr>
                 <td>{{ ++$i }}</td>
-                <td>{{ $product->cat_name }}</td>
-                <td>{{ $product->name }}</td>
-                <td>{{ $product->code }}</td>
-                 <td>{{ $product->cost }}</td>
+                <td>{{ $stock->product_name }}</td>
+                <td>{{ $stock->supplier_name }}</td>
+                <td>{{ $stock->quantity }}</td>                
                 <td>
-                    <form action="/products/destroy/{{$product->id}}" method="POST">
-                        <a class="btn btn-info" href="/products/show/{{$product->id}}">Show</a>
-                        <a class="btn btn-primary" href="/products/edit/{{$product->id}}">Edit</a>
+                    <form action="/stocks/destroy/{{$stock->id}}" method="POST">
+                        <a class="btn btn-info" href="/stocks/show/{{$stock->id}}">Show</a>
+                        <a class="btn btn-primary" href="/stocks/edit/{{$stock->id}}">Edit</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>

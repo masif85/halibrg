@@ -1,12 +1,12 @@
-@extends('users.layouts.app')
+@extends('categories.layouts.app')
  
 @section('content')
     <div class="row">
         <div class="col-lg-11">
-                <h2>Products</h2>
+                <h2>Categories</h2>
         </div>
         <div class="col-lg-1">
-            <a class="btn btn-success" href="products/create">Add</a>
+            <a class="btn btn-success" href="categories/create">Add</a>
         </div>
     </div>
  
@@ -19,27 +19,21 @@
     <table class="table table-bordered">
         <tr>
             <th>No</th>
-            <th>Category</th>
-            <th>Name</th>
-            <th>Code</th>
-           <th>Price</th>
+            <th>Name</th>            
             <th width="280px">Action</th>
         </tr>
         @php
             $i = 0;
         @endphp
-        @foreach ($products as $product)
-   
+        @foreach ($categories as $cat)       
             <tr>
                 <td>{{ ++$i }}</td>
-                <td>{{ $product->cat_name }}</td>
-                <td>{{ $product->name }}</td>
-                <td>{{ $product->code }}</td>
-                 <td>{{ $product->cost }}</td>
+                <td>{{ $cat->name }}</td>            
+                
                 <td>
-                    <form action="/products/destroy/{{$product->id}}" method="POST">
-                        <a class="btn btn-info" href="/products/show/{{$product->id}}">Show</a>
-                        <a class="btn btn-primary" href="/products/edit/{{$product->id}}">Edit</a>
+                    <form action="/categories/destroy/{{$cat->id}}" method="POST">
+                        <a class="btn btn-info" href="/categories/show/{{$cat->id}}">Show</a>
+                        <a class="btn btn-primary" href="/categories/edit/{{$cat->id}}">Edit</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
@@ -48,4 +42,5 @@
             </tr>
         @endforeach
     </table>
+    
 @endsection

@@ -1,12 +1,12 @@
-@extends('users.layouts.app')
+@extends('products.layouts.app')
  
 @section('content')
     <div class="row">
         <div class="col-lg-11">
-            <h2>Add New User</h2>
+            <h2>Add New Product</h2>
         </div>
         <div class="col-lg-1">
-            <a class="btn btn-primary" href="{{ url('users') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ url('products') }}"> Back</a>
         </div>
     </div>
  
@@ -20,26 +20,50 @@
             </ul>
         </div>
     @endif
-    <form action="/users/store" method="POST" enctype="multipart/form-data">
+    <form action="/products/store" method="POST" enctype="multipart/form-data">
         @csrf
+		 <div class="form-group">
+            <label for="txtusers">User:</label>
+			<select class="form-control" name="txtusers">
+			 @foreach ($users as $user)
+			<option value="{{$user->id}}">{{$user->name}}</option>
+			 @endforeach
+			</select>
+            
+        </div>
+		
+			 <div class="form-group">
+            <label for="txtcat">Category:</label>
+			<select class="form-control" name="txtcat">
+			 @foreach ($categories as $cat)
+			<option value="{{$cat->id}}">{{$cat->name}}</option>
+			 @endforeach
+			</select>
+            
+        </div>
         <div class="form-group">
             <label for="txtname">Name:</label>
             <input type="text" class="form-control" id="txtname" placeholder="Enter  Name" name="txtname">
         </div>
         <div class="form-group">
-            <label for="txtemail">Email:</label>
-            <input type="text" class="form-control" id="txtemail" placeholder="Enter Last Name" name="txtemail">
+            <label for="txtcode">Code:</label>
+            <input type="text" class="form-control" id="txtcode" placeholder="Enter UNIQUE Code" name="txtcode">
+        </div>
+		
+		 <div class="form-group">
+            <label for="txtcost">Cost:</label>
+            <input type="number" class="form-control" id="txtcost" placeholder="Enter COST" name="txtcost">
+        </div>
+		
+		 <div class="form-group">
+            <label for="txtdesc">Description:</label>
+            <textarea  class="form-control" id="txtdesc" placeholder="Enter Description" name="txtdesc"></textarea>
         </div>
 
          <div class="form-group">
             <label for="image">Image:</label>
             <input type="file" class="form-control" id="image"  name="image">
-        </div>
-
-        <div class="form-group">
-            <label for="txtpassword">Password:</label>
-            <input type="text" class="form-control" id="txtpassword" placeholder="Enter Last Name" name="txtpassword">
-        </div>
+        </div>      
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
 @endsection
