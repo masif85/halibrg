@@ -15,14 +15,18 @@ a:hover {
 
 
 .section-products .single-product {
+    text-align:center;
     margin-bottom: 26px;
 }
 
 .section-products .single-product .part-1 {
+    text-align: center;
     position: relative;
     height: 0px;
     max-height: 290px;
-    margin-bottom: 20px;    
+    margin-bottom: 20px;  
+    width: 80%;
+    margin: 0 auto 0;  
 }
 
 .section-products .single-product .part-1::before {
@@ -37,7 +41,7 @@ a:hover {
 }
 
 .section-products .single-product:hover .part-1::before {
-        transform: scale(1.2,1.2) rotate(5deg);
+    transform: scale(1.2,1.2) rotate(5deg);
 }
 
 
@@ -95,6 +99,7 @@ a:hover {
 }
 
 .section-products .single-product .part-2 .product-title {
+    text-align:center;
     font-size: 1rem;
 }
 
