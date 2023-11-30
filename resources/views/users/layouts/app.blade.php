@@ -140,7 +140,7 @@
         
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
+              <i class="nav-icon fas fa-user"></i>
               <p>
                 USERS
                 <i class="fas fa-angle-left right"></i>
@@ -167,7 +167,7 @@
 
            <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
+              <i class="nav-icon fas fa-layer-group"></i>
               <p>
                 PRODUCTS
                 <i class="fas fa-angle-left right"></i>
@@ -226,7 +226,7 @@
 
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
+              <i class="nav-icon fas fa-warehouse"></i>
               <p>
                 STOCKS
                 <i class="fas fa-angle-left right"></i>
