@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Users;
 use App\Models\Favourites;
 use Illuminate\Http\Request;
-
+use Auth;
 class UsersController extends Controller
 {
     /**
@@ -143,7 +143,7 @@ $users = Users::find($id);
         //$fav = Favourites::all();
         $fav = new Favourites([
             'product_id' => $request->get('pid'),
-            'user_id' => Auth::user()
+            'user_id' => Auth::user()->id
         ]);
        $fav->save();
         

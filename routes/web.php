@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;  
 
 Route::post('/login',[AuthController::class,'index'])->name('login');
+Route::get('/login/logout',[LoginController::class,'logout']);
 Route::get('/login', [LoginController::class, 'index']);
 Route::get('/login/checklogin', [LoginController::class, 'checklogin']);
 
@@ -18,7 +19,7 @@ Route::patch('/users/update/{id}',[UsersController::class, 'update'])->middlewar
 Route::delete ('/users/destroy/{id}',[UsersController::class, 'destroy'])->middleware('auth');
 Route::get ('/users/show/{id}',[UsersController::class, 'show'])->middleware('auth');
 Route::post ('/users/update_status',[UsersController::class, 'update_status'])->middleware('auth');
-Route::post ('/users/add_fav',[UsersController::class, 'add_fav'])->middleware('auth');;
+Route::post ('/users/add_fav',[UsersController::class, 'add_fav'])->middleware('auth');
 
 Route::get('/products', [ProductsController::class, 'index'])->middleware('auth');
 Route::get('/products/create',[ProductsController::class, 'create'])->middleware('auth');

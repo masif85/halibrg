@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use App\Models\Categories;
 use Illuminate\Http\Request;
+use Auth;
 class CategoriesController extends Controller
 {
     /**

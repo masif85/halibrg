@@ -2,12 +2,6 @@
  
 @section('content')
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
-
-body {
-    font-family: "Poppins", sans-serif;
-    color: #444444;
-}
 
 a,
 a:hover {
@@ -84,7 +78,6 @@ a:hover {
     display: inline-block;
     margin-right: 4px;
 }
-
 .section-products .single-product .part-1 ul li a {
     display: inline-block;
     width: 40px;
@@ -109,18 +102,11 @@ a:hover {
     display: inline-block;
     font-size: 1rem;
 }
-
-
-
-
-    </style>
+</style>
     <div class="row">
         <div class="col-lg-11">
                 <h2>Products</h2>
-        </div>
-        <div class="col-lg-1">
-            <a class="btn btn-success" href="products/create">Add</a>
-        </div>
+        </div>        
     </div>
  
     @if ($message = Session::get('success'))
@@ -128,37 +114,32 @@ a:hover {
             <p>{{ $message }}</p>
         </div>
     @endif
-    
+
     <div class="row">
         <div class="col-lg-10">
 <section class="section-products">
-       
-          
                 <div class="row">
                         <!-- Single Product -->
-
                          @foreach ($products as $pd)
                         <div class="col-md-6 col-lg-4 col-xl-3">
                   <div id="product-1" class="single-product">
                     <img src="{{ asset('uploads/products/')}}/{{$pd->image}}" width="250">
-                                        <div class="part-1">
-                                                <ul>
-                                                        <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                                                        <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                                                        
-                                                       
-                                                </ul>
-                                        </div>
-                                        <div class="part-2">
-                                                <h3 class="product-title">{{$pd->name}}</h3>
-                                                <h4 class="product-price">AED: {{$pd->cost}}</h4>
-                                        </div>
-                                </div>
-                        </div>
-                         @endforeach
-                </div>
-                </div>
-       </div>
+   <div class="part-1">
+    <ul>
+    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+    <li><a href="#"><i class="fas fa-heart add_fav" data-prod="{{$pd->id}}"></i></a></li>
+     </ul>
+    </div>
+     <div class="part-2">
+        <h3 class="product-title">{{$pd->name}}</h3>
+            <h4 class="product-price">AED: {{$pd->cost}}</h4>
+     </div>
+    </div>
+    </div>
+    @endforeach
+ </div>
+  </div>
+</div>
 </section>
     <script>
         $(".add_fav").click(function(){

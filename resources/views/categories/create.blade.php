@@ -5,9 +5,7 @@
         <div class="col-lg-11">
             <h2>Add New Category</h2>
         </div>
-        <div class="col-lg-1">
-            <a class="btn btn-primary" href="{{ url('categories') }}"> Back</a>
-        </div>
+        
     </div>
  
     @if ($errors->any())

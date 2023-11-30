@@ -3,11 +3,9 @@
 @section('content')
     <div class="row">
         <div class="col-lg-11">
-                <h2>Users {{Auth::user()->name}}</h2>
+                <h2>Users</h2>
         </div>
-        <div class="col-lg-1">
-            <a class="btn btn-success" href="users/create">Add</a>
-        </div>
+       
     </div>
  
     @if ($message = Session::get('success'))
@@ -48,7 +46,7 @@
                         <a class="btn btn-primary" href="/users/edit/{{$user->id}}">Edit</a>
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                      <!--  <button type="submit" class="btn btn-danger">Delete</button> -->
                     </form>
                 </td>
             </tr>

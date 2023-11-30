@@ -5,6 +5,7 @@ use App\Models\Users;
 use App\Models\Products;
 use App\Models\Categories;
 use Illuminate\Http\Request;
+use Auth;
 class StocksController extends Controller
 {
     /**

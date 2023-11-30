@@ -5,9 +5,7 @@
         <div class="col-lg-11">
                 <h2>Detail for {{ $products->name }}</h2>
         </div>
-        <div class="col-lg-1">
-            <a class="btn btn-primary" href="{{ url('products') }}"> Back</a>
-        </div>
+        
     </div>
     <table class="table table-bordered">
         <tr>

@@ -97,7 +97,7 @@
           <div class="dropdown-divider"></div>
 
           <div class="dropdown-divider"></div>
-          <a href="/login/logout"" class="dropdown-item">
+          <a href="/login/logout" class="dropdown-item">
             <i class="fa-solid fa-shield fas fa-sign-out-alt"></i> Logout
            
           </a>
@@ -273,16 +273,7 @@
           <div class="col-sm-6">
             <h1 class="m-0 text-dark"></h1>
           </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-           <li><button type="button" class="btn btn-block btn-outline-success btn-sm" data-toggle="modal" data-target="#modal-default">Add User</button></li> <li class="breadcrumb-item">&nbsp;</li>
-                
-              <li class="breadcrumb-item"><a href="#"></a></li>
-              <li class="breadcrumb-item active"></li>
-                 
-            </ol>
-    
-          </div><!-- /.col -->
+         
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>

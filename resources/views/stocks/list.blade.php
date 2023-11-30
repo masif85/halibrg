@@ -5,9 +5,7 @@
         <div class="col-lg-11">
                 <h2>Stocks</h2>
         </div>
-        <div class="col-lg-1">
-            <a class="btn btn-success" href="stocks/create">Add</a>
-        </div>
+       
     </div>
  
     @if ($message = Session::get('success'))

@@ -5,9 +5,7 @@
         <div class="col-lg-11">
                 <h2>Users</h2>
         </div>
-        <div class="col-lg-1">
-            <a class="btn btn-primary" href="{{ url('users') }}"> Back</a>
-        </div>
+      
     </div>
     <table class="table table-bordered">
         <tr>

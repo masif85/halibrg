@@ -5,6 +5,7 @@ use App\Models\Users;
 use App\Models\Categories;
 use App\Models\Stocks;
 use Illuminate\Http\Request;
+use Auth;
 class ProductsController extends Controller
 {
   

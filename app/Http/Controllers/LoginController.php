@@ -21,7 +21,8 @@ class LoginController extends Controller
 
      $user_data = array(
       'email'  => $request->get('email'),
-      'password' => $request->get('password')
+      'password' => $request->get('password'),
+      'status'=>1
      );
 
      if(Auth::attempt($user_data))
@@ -42,6 +43,7 @@ class LoginController extends Controller
 
     function logout()
     {
+       
      Auth::logout();
      return redirect('/login');
     }
