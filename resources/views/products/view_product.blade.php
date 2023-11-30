@@ -108,11 +108,13 @@ a:hover {
     font-size: 1rem;
 }
 </style>
-    <div class="row">
-        <div class="col-lg-11">
-                <h2>Products</h2>
-        </div>        
-    </div>
+
+<div class="card card-primary">
+ 
+	
+	<div class="card-header">
+<h3 class="card-title">Products</h3>
+</div>
  
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
@@ -120,7 +122,7 @@ a:hover {
         </div>
     @endif
 
-    <div class="row">
+     <div class="row">&nbsp;</div>
         <div class="col-lg-10">
 <section class="section-products">
                 <div class="row">
@@ -148,9 +150,12 @@ a:hover {
 	<div class="col-lg-1"></div>
     @endforeach
  </div>
+   </section>
   </div>
+
+
+
 </div>
-</section>
     <script>
         $(".add_fav").click(function(){
             var pid=$(this).attr("data-prod");            
@@ -167,3 +172,6 @@ a:hover {
 });
     </script>
 @endsection
+
+
+
