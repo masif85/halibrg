@@ -18,6 +18,7 @@ class CreateTblStocksTable extends Migration
             $table->string('product_id');
             $table->string('supplier_name');
              $table->string('quantity');
+			 $table->datetime('date');
             $table->timestamps();
         });
     }

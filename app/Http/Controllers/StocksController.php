@@ -49,7 +49,8 @@ class StocksController extends Controller
         $stocks = new Stocks([
             'product_id' => $request->get('txtproduct'),
             'supplier_name'=> $request->get('txtname')[$i],
-            'quantity'=> $request->get('txtquantity')[$i]			
+            'quantity'=> $request->get('txtquantity')[$i],
+			'date'=>$request->get('txtdate')[$i]
         ]);
         $stocks->save();       
 		endfor;
@@ -98,18 +99,23 @@ class StocksController extends Controller
     {
       $request->validate([
             //'txtproduct'=>'required',
-            'txtname'=> 'required',
-            'txtquantity' => 'required'
+            //'txtname'=> 'required',
+            //'txtquantity' => 'required'
         ]);
-	$total= count($request->get('txtname'));
+		
+	$total= count($request->get('txtname'));	
+	if($total>0):		
+        Stocks::where('product_id', $id)->delete();
 	for($i=0;$i<$total;$i++):
         $stocks = new Stocks([
-            //'product_id' => $request->get('txtproduct'),
+            'product_id' => $id,
             'supplier_name'=> $request->get('txtname')[$i],
-            'quantity'=> $request->get('txtquantity')[$i]           
+            'quantity'=> $request->get('txtquantity')[$i],
+			'date'=> $request->get('txtdate')[$i]			
         ]);
         $stocks->save();       
     endfor;
+	endif;
      return redirect('/stocks')->with('success', 'Stock updated successfully');         
 /*
 
