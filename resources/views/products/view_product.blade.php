@@ -10,7 +10,7 @@ a:hover {
 }
 
 .section-products {
-    padding: 80px 0 54px;
+    
 }
 
 
