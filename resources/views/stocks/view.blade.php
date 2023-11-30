@@ -22,6 +22,10 @@
             <th>Quantity:</th>
             <td>{{ $stock->quantity }}</td>
         </tr>
+		<tr>
+            <th>Date:</th>
+            <td>{{ $stock->date }}</td>
+        </tr>
 		 <tr>
             <th>Created at:</th>
             <td>{{ $stock->created_at }}</td>
