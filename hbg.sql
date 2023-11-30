@@ -11,7 +11,7 @@
  Target Server Version : 100418
  File Encoding         : 65001
 
- Date: 30/11/2023 19:38:01
+ Date: 30/11/2023 21:31:17
 */
 
 SET NAMES utf8mb4;
@@ -131,8 +131,9 @@ CREATE TABLE `tbl_products`  (
   `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `unique code`(`code`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tbl_products
@@ -149,19 +150,19 @@ CREATE TABLE `tbl_stocks`  (
   `product_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `supplier_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `quantity` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date` date NULL DEFAULT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tbl_stocks
 -- ----------------------------
-INSERT INTO `tbl_stocks` VALUES (1, '3', 'Asif supplier', '452', '2023-11-29 18:02:48', '2023-11-29 18:25:53');
-INSERT INTO `tbl_stocks` VALUES (2, '1', 'Muhammad Asif', '3434', '2023-11-30 03:47:14', '2023-11-30 03:47:14');
-INSERT INTO `tbl_stocks` VALUES (3, '1', 'Muhammad Asif 2', '3435', '2023-11-30 03:47:14', '2023-11-30 03:47:14');
-INSERT INTO `tbl_stocks` VALUES (4, '1', 'Muhammad Asif 3', '12', '2023-11-30 04:18:23', '2023-11-30 04:18:23');
-INSERT INTO `tbl_stocks` VALUES (5, '3', 'kashif khan products', '15', '2023-11-30 04:25:56', '2023-11-30 04:25:56');
+INSERT INTO `tbl_stocks` VALUES (5, '3', 'kashif khan products', '15', NULL, '2023-11-30 04:25:56', '2023-11-30 04:25:56');
+INSERT INTO `tbl_stocks` VALUES (14, '1', 'Muhammad Asif', '3434', '2023-11-08', '2023-11-30 16:11:47', '2023-11-30 16:11:47');
+INSERT INTO `tbl_stocks` VALUES (15, '1', 'Muhammad Asif 2', '3435', '2023-11-29', '2023-11-30 16:11:47', '2023-11-30 16:11:47');
+INSERT INTO `tbl_stocks` VALUES (16, '1', 'Muhammad Asif 3', '12', '2023-11-28', '2023-11-30 16:11:47', '2023-11-30 16:11:47');
 
 -- ----------------------------
 -- Table structure for tbl_users
