@@ -57,7 +57,7 @@ $filename="";
         $users = new Users([
             'name' => $request->get('txtname'),
             'email'=> $request->get('txtemail'),
-            'password'=> $request->get('txtpassword'),
+            'password'=> bcrypt($request->get('txtpassword')),
             'image'=>$filename
         ]);
 
@@ -101,7 +101,7 @@ $filename="";
         $request->validate([
             'txtname'=>'required',
             'txtemail'=> 'required',
-            'txtpassword' => 'required'
+           // 'txtpassword' => 'required'
             //,'txtimage' => 'required'
         ]); 
 
@@ -118,8 +118,10 @@ $users = Users::find($id);
         
         $users->name = $request->get('txtname');
         $users->email = $request->get('txtemail');
-        $users->password = $request->get('txtpassword');         
-
+		if($request->get('txtpassword'))
+		{
+        $users->password = bcrypt($request->get('txtpassword'));         
+		}
        // $users->image = $request->get('txtimage'); 
         $users->update(); 
         return redirect('/users')->with('success', 'user updated successfully');
