@@ -36,11 +36,11 @@
                 <td>{{ $stock->quantity }}</td>                
                 <td>
                     <form action="/stocks/destroy/{{$stock->id}}" method="POST">
-                        <a class="btn btn-info" href="/stocks/show/{{$stock->id}}">Show</a>
-                        <a class="btn btn-primary" href="/stocks/edit/{{$stock->id}}">Edit</a>
+                        <a class="btn btn-info" href="/stocks/show/{{$stock->product_id}}">Show</a>
+                        <a class="btn btn-primary" href="/stocks/edit/{{$stock->product_id}}">Edit</a>
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                       <!-- <button type="submit" class="btn btn-danger">Delete</button> -->
                     </form>
                 </td>
             </tr>

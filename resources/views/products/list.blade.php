@@ -21,6 +21,7 @@
             <th>No</th>
             <th>Category</th>
             <th>Name</th>
+             <th>Stock Quantity</th>
             <th>Code</th>
            <th>Price</th>
             <th width="280px">Action</th>
@@ -34,6 +35,7 @@
                 <td>{{ ++$i }}</td>
                 <td>{{ $product->cat_name }}</td>
                 <td>{{ $product->name }}</td>
+                 <td>{{ $product->quantity }}</td>
                 <td>{{ $product->code }}</td>
                  <td>{{ $product->cost }}</td>
                 <td>
