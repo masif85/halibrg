@@ -27,7 +27,7 @@ class LoginController extends Controller
 
      if(Auth::attempt($user_data))
      {
-      return redirect('/products');
+      return redirect('/products/view');
      }
      else
      {
