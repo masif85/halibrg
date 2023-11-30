@@ -6,6 +6,7 @@ use App\Models\Categories;
 use App\Models\Stocks;
 use Illuminate\Http\Request;
 use Auth;
+Use Exception;
 class ProductsController extends Controller
 {
   
@@ -69,6 +70,7 @@ class ProductsController extends Controller
             'txtcat'=> 'required',
             'txtname' => 'required',
 			'txtcode' => 'required',
+			'txtcode' => 'unique:tbl_products,code',
 			'txtcost' => 'required',
 			'txtdesc' => 'required',
             'image' => 'required'
@@ -92,9 +94,16 @@ $filename ="";
             'description'=> $request->get('txtdesc'),
             'image'=>$filename
         ]);
-
-        $products->save();
-        return redirect('/products')->with('success', 'Product has been added');
+try
+{
+$products->save();
+}
+    catch(\Throwable $e)
+{
+  //return "Error";
+  return redirect('/products/create')->with('success', "Error Occurred");
+}    
+        return redirect('/product')->with('success', 'Product has been added');
     }
 
     /**
