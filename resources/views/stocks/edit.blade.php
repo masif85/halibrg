@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-11">
-            <h2>Update Stcok for {{$product_data->name}}</h2>
+            <h2>Update Stock for {{$product_data->name}}</h2>
         </div>
         
     </div>
