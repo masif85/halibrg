@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Users;
+use App\Models\Favourites;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -135,6 +136,18 @@ $users = Users::find($id);
        // $users->image = $request->get('txtimage'); 
         $users->update(); 
         return redirect('/users')->with('success', 'user updated successfully');
+    }
+
+    public function add_fav(Request $request, Users $users)
+    { 
+        //$fav = Favourites::all();
+        $fav = new Favourites([
+            'product_id' => $request->get('pid'),
+            'user_id' => Auth::user()
+        ]);
+       $fav->save();
+        
+     return redirect('/products')->with('success', 'Product is Favourited');
     }
 
     /**

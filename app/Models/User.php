@@ -17,6 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+     protected $table = "tbl_users";
     protected $fillable = [
         'name',
         'email',
@@ -29,8 +30,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'password'
     ];
 
     /**
@@ -38,7 +38,7 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
-    protected $casts = [
+   /* protected $casts = [
         'email_verified_at' => 'datetime',
-    ];
+    ]; */
 }

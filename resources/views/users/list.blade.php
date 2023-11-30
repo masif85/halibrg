@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-11">
-                <h2>Users</h2>
+                <h2>Users {{Auth::user()->name}}</h2>
         </div>
         <div class="col-lg-1">
             <a class="btn btn-success" href="users/create">Add</a>
