@@ -27,6 +27,20 @@ class ProductsController extends Controller
         return view('products.list', compact('products','products'));
     }
 
+
+      public function view()
+    {
+      
+        //$products =  Products::all();
+        $products= Products::leftJoin('tbl_categories', 'tbl_categories.id', '=', 'tbl_products.category')
+                    ->leftJoin('tbl_users', 'tbl_users.id', '=', 'tbl_products.user_id')
+                    ->leftJoin('tbl_users_favorites', 'tbl_users_favorites.product_id', '=', 'tbl_products.id')
+                    ->leftJoin('tbl_stocks', 'tbl_stocks.product_id', '=', 'tbl_products.id')->groupBy('tbl_products.id')
+                    ->get(['tbl_categories.name as cat_name', 'tbl_users.name as user_name', 'tbl_products.*',Stocks::raw('sum(tbl_stocks.quantity) as quantity'),'tbl_users_favorites.user_id as fav_user_id']);
+
+        return view('products.view_product', compact('products','products'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

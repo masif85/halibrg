@@ -28,6 +28,8 @@ Route::patch('/products/update/{id}',[ProductsController::class, 'update'])->mid
 Route::delete ('/products/destroy/{id}',[ProductsController::class, 'destroy'])->middleware('auth');
 Route::get ('/products/show/{id}',[ProductsController::class, 'show'])->middleware('auth');
 
+Route::get ('/products/view/',[ProductsController::class, 'view'])->middleware('auth');
+
 
 
 Route::get('/categories', [CategoriesController::class, 'index'])->middleware('auth');

@@ -36,7 +36,10 @@
     <script src="{{ asset('admin_s') }}/plugins/sweetalert2/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="{{ asset('admin_s') }}/plugins/sweetalert2/sweetalert2.min.css">
     <link rel="stylesheet" href="{{ asset('admin_s') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">   
-    
+    <script src="{{ asset('admin_s') }}/plugins/jquery/jquery.min.js"></script>
+
+<!-- jQuery UI 1.11.4 -->
+<script src="{{ asset('admin_s') }}/plugins/jquery-ui/jquery-ui.min.js"></script>
     
     
     
@@ -52,10 +55,10 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="/{{Request::segment(1)}}" class="nav-link">{{ucfirst(Request::segment(1))}}</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="{{Request::segment(1)}}/{{Request::segment(2)}}" class="nav-link">{{ucfirst(Request::segment(2))}}</a>
       </li>
     </ul>
 
@@ -115,8 +118,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .8">
+      
       <span class="brand-text font-weight-light">Admin Panel</span>
     </a>
 
@@ -125,10 +127,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="" class="img-circle elevation-2" alt="User Image">
+          <img src="{{ asset('uploads/users/')}}/{{Auth::user()->image}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">asdfdfas</a>
+          <a href="#" class="d-block">{{Auth::user()->name}}</a>
         </div>
       </div>
 
@@ -144,29 +146,115 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Movies
+                USERS
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
          
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="/users/create" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View Movie(s)</p>
+                  <p>Add User(s)</p>
                 </a>
               </li>
                
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="/users" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add Movie</p>
+                  <p>User Listing</p>
+                </a>
+              </li> 
+                   
+            </ul>
+          </li>
+
+           <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                PRODUCTS
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview"> 
+              <li class="nav-item">
+                <a href="/products/create" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add</p>
+                </a>
+              </li> 
+                <li class="nav-item">
+                <a href="/products" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List</p>
+                </a>
+              </li> 
+
+               <li class="nav-item">
+                <a href="/products/view" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View</p>
+                </a>
+              </li> 
+                   
+            </ul>
+          </li>
+
+
+           <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                CATEGORIES
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview"> 
+              <li class="nav-item">
+                <a href="/categories/create" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add</p>
+                </a>
+              </li> 
+                <li class="nav-item">
+                <a href="/categories" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View</p>
+                </a>
+              </li> 
+                   
+            </ul>
+          </li>
+
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                STOCKS
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview"> 
+              <li class="nav-item">
+                <a href="/stocks/create" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add</p>
+                </a>
+              </li> 
+                <li class="nav-item">
+                <a href="/stocks" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View</p>
                 </a>
               </li> 
                    
             </ul>
           </li>
             
+
+
             
 
         </ul>
@@ -193,23 +281,13 @@
               <li class="breadcrumb-item active"></li>
                  
             </ol>
-             
-    
-             
-            
-               
-              
-              
-            
-              <!-- /.card-body -->
-           
     
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    <div class="container">
+    <div class="content">
     @yield('content')
 </div>
     <section class="content">
@@ -256,13 +334,7 @@
         <!-- /.modal-dialog -->
       </div>        
     </section>
-<footer class="main-footer">
-    <strong></strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.0.4
-    </div>
-  </footer>
+
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -273,51 +345,17 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="{{ asset('admin_s') }}/plugins/jquery/jquery.min.js"></script>
 
-<!-- jQuery UI 1.11.4 -->
-<script src="{{ asset('admin_s') }}/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('admin_s') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- ChartJS -->
-<script src="{{ asset('admin_s') }}/plugins/chart.js/Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="{{ asset('admin_s') }}/plugins/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
-<script src="{{ asset('admin_s') }}/plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="{{ asset('admin_s') }}/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="{{ asset('admin_s') }}/plugins/jquery-knob/jquery.knob.min.js"></script>
-<!-- daterangepicker -->
-<script src="{{ asset('admin_s') }}/plugins/moment/moment.min.js"></script>
-<script src="{{ asset('admin_s') }}/plugins/daterangepicker/daterangepicker.js"></script>
 <script src="{{ asset('admin_s') }}/plugins/select2/js/select2.full.min.js"></script>
-<!-- Bootstrap4 Duallistbox -->
-<script src="{{ asset('admin_s') }}/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
-<!-- InputMask -->
-<script src="{{ asset('admin_s') }}/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
-<!-- date-range-picker -->
-<!-- bootstrap color picker -->
-<script src="{{ asset('admin_s') }}/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="{{ asset('admin_s') }}/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Bootstrap Switch -->
-<script src="{{ asset('admin_s') }}/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="{{ asset('admin_s') }}/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Summernote -->
-<script src="{{ asset('admin_s') }}/plugins/summernote/summernote-bs4.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="{{ asset('admin_s') }}/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
 <script src="{{ asset('admin_s') }}/dist/js/adminlte.js"></script>
 <script>
 var url = window.location;
-
 $('ul.nav-sidebar a').filter(function() {
     if (this.href) {
         return this.href == url || url.href.indexOf(this.href) == 0;
@@ -376,26 +414,11 @@ $('ul.nav-treeview a').filter(function() {
             'csvHtml5',
             'pdfHtml5'
         ]
-    });
+    });        
         
-        
-        
-        
-  $('#reservation').daterangepicker({
-      autoUpdateInput: false,
-      locale: {
-         // format: ''
-      }
-  });
 
-  $('#reservation').on('apply.daterangepicker', function(ev, picker) {
-      $(this).val(picker.startDate.format('YYYY-MM-DD') + ',' + picker.endDate.format('YYYY-MM-DD'));
-  });
 
-  $('#reservation').on('cancel.daterangepicker', function(ev, picker) {
-      $(this).val('');
-  });
-        
+   
   });    
 </script>
 </body>
