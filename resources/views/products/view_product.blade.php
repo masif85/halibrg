@@ -132,12 +132,16 @@ a:hover {
    <div class="part-1">
     <ul>
     <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-    <li><a href="#"><i class="fas fa-heart add_fav" data-prod="{{$pd->id}}"></i></a></li>
+    <li><a href="#"><i class="fas fa-heart add_fav"
+ @if ($pd->fav_user_id)
+ style="color: #fe302f"
+   @endif
+      data-prod="{{$pd->id}}"></i></a></li>
      </ul>
-    </div>
+    </div>    
      <div class="part-2">
-        <h3 class="product-title">{{$pd->name}}</h3>
-            <h4 class="product-price">AED: {{$pd->cost}}</h4>
+        <h3 class="product-title bg-gray py-2 px-3 mt-4">{{$pd->name}}</h3>
+            <h4 class="product-price btn btn-primary btn-lg btn-flat">AED: {{$pd->cost}}</h4>
      </div>
     </div>
     </div>
