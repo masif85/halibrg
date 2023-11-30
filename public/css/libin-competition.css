@@ -1,0 +1,325 @@
+.post-header-subscription h1 {
+    font-size: 40px;
+    font-weight: 600 !important;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+
+.subscribe_pan_summary {
+    font-size: 16px;
+    color: #333333;
+    margin: 0px;
+    border-bottom: 1px solid #e2e2e2;
+    line-height: 19px;
+
+}
+
+.form-group b {
+    padding: 0px 0px 0px 0px;
+    float: left;
+}
+
+.subscribe_pan_summary p {
+    padding-top: 15px;
+    margin-bottom: 15px;
+
+}
+
+.article-wrapper h2 {
+
+    color: #2296e3;
+
+}
+
+.article-wrapper a {
+    color: #2296e3;
+    font-weight: bold;
+}
+
+.login-form {
+   /* width: 500px;
+    margin: 70px auto;*/
+    font-size: 14px;
+
+}
+
+.login-form form {
+    margin-bottom: 15px;
+    /*background: #f7f7f7;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);*/
+    padding: 30px;
+    font-family: 'proxima_novaregular';
+}
+
+.login-form h2 {
+    margin: 0 0 15px;
+}
+
+.form-control,
+.btn {
+    min-height: 38px;
+    border-radius: 2px;
+    font-family: 'proxima_novaregular';
+}
+
+.btn {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #2296e3;
+    border-color: #2296e3;
+    font-family: 'proxima_novaregular';
+}
+
+
+.competition-main {
+
+    border: 1px solid #ededed;
+    margin-top: 15px;
+    padding: 5px;
+}
+
+.competition-main-box {
+
+    background: #f7f7f7;
+    border: 1px solid #f0f0f0;
+    text-align: center;
+    padding: 15px 10px;
+
+}
+
+.competition-main-box h2 {
+
+    font-size: 22px;
+    margin-top: 8px;
+
+}
+
+.competition-main-box a {
+
+    color: #fff;
+    background-color: #2296e3;
+    border-color: #2296e3;
+    font-family: 'proxima_novaregular';
+    padding: 8px 15px;
+    border-radius: 3px;
+    font-size: 15px;
+
+
+
+}
+
+.competition-main-box a:hover {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+
+}
+
+.cont {
+    width: 100%;
+}
+
+.competition-main {
+    display: block;
+
+    width: 100%;
+    float: left;
+
+}
+
+
+
+
+.single-item img {
+
+
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+
+
+}
+
+.pagination {
+
+    display: inline-block;
+    height: 45px;
+    margin-top: 25px;
+    padding: 0 25px;
+    border-radius: 35px;
+    background-color: #f7f7f7;
+    width: 100%;
+    border: 1px solid #f0f0f0;
+}
+
+.page {
+    display: block;
+    padding: 0 15px;
+    float: left;
+    transition: 400ms ease;
+    color: #595959;
+
+    letter-spacing: 0.1em;
+    margin-top: 8px;
+}
+
+a.nav.prev,
+a.nav.next {
+    float: left;
+    width: auto;
+    margin: 8px 10px;
+    cursor: pointer;
+
+}
+
+
+.page:hover,
+.page.current {
+    background-color: #2296e3;
+    border-color: #2296e3;
+    color: #fff;
+    cursor: pointer;
+
+
+}
+
+
+.single-item {
+
+    justify-content: center;
+    float: left;
+    margin: 3px 0px;
+    height: 100%;
+    min-height: 466px;
+    max-height: 700px;
+    overflow: hidden;
+
+
+}
+	
+
+@media (max-width: 1336px) {
+	
+	.single-item {
+
+    justify-content: center;
+    float: left;
+    margin: 3px 0px;
+    height: 100%;
+    min-height: 466px;
+    max-height: 700px;
+    overflow: hidden;
+
+
+}
+	
+}
+
+
+
+@media (max-width: 991px) {
+	.single-item {
+
+    justify-content: center;
+    float: left;
+    margin: 3px 0px;
+    height: 100%;
+    min-height: 466px;
+    max-height: 700px;
+    overflow: hidden;
+
+
+}
+	
+}
+
+@media (max-width: 768px) {
+
+    .login-form {
+        width: 80%;
+        margin: 40px auto;
+
+    }
+
+    .single-item {
+        height: 100%;
+        /*min-height: 700px;*/
+        max-height: 800px;
+        overflow: hidden;
+
+    }
+	
+	.single-item {
+
+    justify-content: center;
+    float: left;
+    margin: 3px 0px;
+    height: 100%;
+    min-height: 456px;
+    max-height: 700px;
+    overflow: hidden;
+
+
+}
+
+}
+
+
+@media (max-width: 567px) {
+    .login-form {
+        width: 100%;
+        margin: 20px auto;
+
+    }
+
+    .login-form form {
+
+
+        padding: 15px;
+
+    }
+	
+	.single-item {
+
+    justify-content: center;
+    float: left;
+    margin: 3px 0px;
+    height: 100%;
+   
+    max-height: 700px;
+    overflow: hidden;
+
+
+}
+
+}
+
+@media (max-width: 480px) {
+
+    .post-header-subscription h1 {
+        font-size: 35px;
+
+        padding-bottom: 15px;
+    }
+
+	
+.single-item {
+
+    justify-content: center;
+    float: left;
+    margin: 3px 0px;
+    height: 100%;
+   
+    max-height: 700px;
+    overflow: hidden;
+
+
+}
+
+
+}
