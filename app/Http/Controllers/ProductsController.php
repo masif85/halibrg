@@ -84,7 +84,7 @@ $filename ="";
             //$users->image = $filename;
         } 
         $products = new Products([
-            'user_id' => $request->get('txtusers'),
+            'user_id' => Auth::user()->id,
             'category'=> $request->get('txtcat'),
             'cost'=> $request->get('txtcost'),
 			 'name' => $request->get('txtname'),
@@ -164,7 +164,7 @@ $filename ="";
         } 
 
 
-        $products->user_id = $request->get('txtusers');
+        $products->user_id = Auth::user()->id;
         $products->category = $request->get('txtcat');
         $products->cost = $request->get('txtcost');
 		$products->name = $request->get('txtname');

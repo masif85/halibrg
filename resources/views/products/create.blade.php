@@ -22,7 +22,9 @@
         @csrf
 		 <div class="form-group">
             <label for="txtusers">User:</label>
-			<select class="form-control" name="txtusers">
+			<select class="form-control" readonly name="txtusers">
+			<option value="{{Auth::user()->id}}" selected >{{Auth::user()->name}}</option>
+			
 			 @foreach ($users as $user)
 			<option value="{{$user->id}}">{{$user->name}}</option>
 			 @endforeach

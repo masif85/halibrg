@@ -32,7 +32,8 @@
         </div>		
 			 <div class="form-group">
             <label for="txtcat">Category:</label>
-			<select class="form-control" name="txtcat">
+			<select class="form-control" readonly name="txtcat">
+			<option value="{{Auth::user()->id}}" selected >{{Auth::user()->name}}</option>
 			<option value="{{$products->cat_id}}" selected>{{$products->cat_name}}</option>
 			 @foreach ($categories as $cat)
 			<option value="{{$cat->id}}">{{$cat->name}}</option>

@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>KT Subscriptions| Dashboard</title>
+  <title>HailBurg| Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="{{ asset('admin_s') }}/dist/img/favicon.ico">
+    <link rel="shortcut icon" href="https://haliburg.com/wp-content/uploads/2015/05/haliburg_group.jpg">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('admin_s') }}/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -349,12 +349,12 @@
 var url = window.location;
 $('ul.nav-sidebar a').filter(function() {
     if (this.href) {
-        return this.href == url || url.href.indexOf(this.href) == 0;
+        return this.href == url || url.href.indexOf(this.href) == 1;
     }
 }).addClass('active');
 $('ul.nav-treeview a').filter(function() {
     if (this.href) {
-        return this.href == url || url.href.indexOf(this.href) == 0;
+        return this.href == url || url.href.indexOf(this.href) == 1;
     }
 }).parentsUntil(".nav-sidebar > .nav-treeview").addClass('menu-open').prev('a').addClass('active');
 
@@ -377,11 +377,11 @@ $('ul.nav-treeview a').filter(function() {
      $(function () {
         var url = window.location;
         // Will only work if string in href matches with location
-        $('.treeview-menu li a[href="' + url + '"]').parent().addClass('active');
+        $('.treeview-menu li a[href="' + url + '"]').parent().addClass('actives');
         // Will also work for relative and absolute hrefs
         $('.treeview-menu li a').filter(function() {
             return this.href == url;
-        }).parent().parent().parent().addClass('active');
+        }).parent().parent().parent().addClass('actives');
     });
         
     $(function () {
