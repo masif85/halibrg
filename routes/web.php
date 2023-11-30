@@ -6,6 +6,7 @@ use App\Http\Controllers\StocksController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;  
 
+Route::get('/',[LoginController::class,'index']);
 Route::post('/login',[AuthController::class,'index'])->name('login');
 Route::get('/login/logout',[LoginController::class,'logout']);
 Route::get('/login', [LoginController::class, 'index']);
