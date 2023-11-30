@@ -22,21 +22,21 @@
         @csrf
         <div class="form-group">
             <label for="txtname">Name:</label>
-            <input type="text" class="form-control" id="txtname" placeholder="Enter  Name" name="txtname">
+            <input type="text" class="form-control" required id="txtname" placeholder="Enter  Name" name="txtname">
         </div>
         <div class="form-group">
             <label for="txtemail">Email:</label>
-            <input type="text" class="form-control" id="txtemail" placeholder="Enter Last Name" name="txtemail">
+            <input type="text" class="form-control" required id="txtemail" placeholder="Enter Last Name" name="txtemail">
         </div>
 
          <div class="form-group">
             <label for="image">Image:</label>
-            <input type="file" class="form-control" id="image"  name="image">
+            <input type="file" class="form-control" required id="image"  name="image">
         </div>
 
         <div class="form-group">
             <label for="txtpassword">Password:</label>
-            <input type="text" class="form-control" id="txtpassword" placeholder="Enter Last Name" name="txtpassword">
+            <input type="text" class="form-control" required id="txtpassword" placeholder="Enter Last Name" name="txtpassword">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>

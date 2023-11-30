@@ -354,7 +354,7 @@ $('ul.nav-sidebar a').filter(function() {
 }).addClass('active');
 $('ul.nav-treeview a').filter(function() {
     if (this.href) {
-        return this.href == url || url.href.indexOf(this.href) == 1;
+        return this.href == url || url.href.indexOf(this.href) == 0;
     }
 }).parentsUntil(".nav-sidebar > .nav-treeview").addClass('menu-open').prev('a').addClass('active');
 

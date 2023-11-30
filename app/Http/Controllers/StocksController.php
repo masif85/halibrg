@@ -15,8 +15,7 @@ class StocksController extends Controller
      */
     public function index()
     { 
-		$stocks= Stocks::leftJoin('tbl_products', 'tbl_products.id', '=', 'tbl_stocks.product_id')->groupBy('product_id')->get(['tbl_products.name as product_name', 'tbl_stocks.*',Stocks::raw('sum(tbl_stocks.quantity) as quantity')]);	
-        
+		$stocks= Stocks::leftJoin('tbl_products', 'tbl_products.id', '=', 'tbl_stocks.product_id')->groupBy('product_id')->get(['tbl_products.name as product_name', 'tbl_stocks.*',Stocks::raw('sum(tbl_stocks.quantity) as quantity')]);        
         return view('stocks.list', compact('stocks'));
     }
 
@@ -45,17 +44,15 @@ class StocksController extends Controller
             'txtname'=> 'required',
             'txtquantity' => 'required'
         ]);
-
-
-$total= count($request->get('txtname'));
-for($i=0;$i<$total;$i++):
+		$total= count($request->get('txtname'));
+		for($i=0;$i<$total;$i++):
         $stocks = new Stocks([
             'product_id' => $request->get('txtproduct'),
             'supplier_name'=> $request->get('txtname')[$i],
             'quantity'=> $request->get('txtquantity')[$i]			
         ]);
         $stocks->save();       
-    endfor;
+		endfor;
      return redirect('/stocks')->with('success', 'Stock Quantity has been updated');
     }
     /**
@@ -66,12 +63,13 @@ for($i=0;$i<$total;$i++):
      */
     public function show(Stocks $stocks,$id)
     {
-          //$stocks = Stocks::find($id);
-		  
-		 $stocks= Stocks::leftJoin('tbl_products', 'tbl_products.id', '=', 'tbl_stocks.product_id')              		
-              		->get(['tbl_products.name as product_name', 'tbl_stocks.*'])->where('id', $id)->first();	 
-		  
-        return view('stocks.view',compact('stocks'));
+        //$stocks = Stocks::find($id);		  
+		/* $stocks= Stocks::leftJoin('tbl_products', 'tbl_products.id', '=', 'tbl_stocks.product_id')              		
+              		->get(['tbl_products.name as product_name', 'tbl_stocks.*'])->where('id', $id)->first(); */
+					$product_data=Products::where('id', '=', $id)->first();
+			$stocks=Stocks::leftJoin('tbl_products', 'tbl_products.id', '=', 'tbl_stocks.product_id')              		
+              		->get(['tbl_products.name as product_name','tbl_products.id as product_id', 'tbl_stocks.*'])->where('product_id', $id);			  
+        return view('stocks.view',compact('stocks','id','product_data'));
     }
 
     /**
@@ -83,10 +81,8 @@ for($i=0;$i<$total;$i++):
     public function edit(Stocks $stocks,$id)
     {
         $product_data=Products::where('id', '=', $id)->first();
-
          $stocks = Stocks::leftJoin('tbl_products', 'tbl_products.id', '=', 'tbl_stocks.product_id')              		
-              		->get(['tbl_products.name as product_name','tbl_products.id as product_id', 'tbl_stocks.*'])->where('product_id', $id);
-       
+              		->get(['tbl_products.name as product_name','tbl_products.id as product_id', 'tbl_stocks.*'])->where('product_id', $id);       
 		$products =  Products::all();					
          return view('stocks.edit',compact('stocks','products','id','product_data'));
     }
@@ -101,24 +97,20 @@ for($i=0;$i<$total;$i++):
     public function update(Request $request, Stocks $stocks,$id)
     {
       $request->validate([
-            'txtproduct'=>'required',
+            //'txtproduct'=>'required',
             'txtname'=> 'required',
             'txtquantity' => 'required'
         ]);
-
-
-$total= count($request->get('txtname'));
-for($i=0;$i<$total;$i++):
+	$total= count($request->get('txtname'));
+	for($i=0;$i<$total;$i++):
         $stocks = new Stocks([
-            'product_id' => $request->get('txtproduct'),
+            //'product_id' => $request->get('txtproduct'),
             'supplier_name'=> $request->get('txtname')[$i],
             'quantity'=> $request->get('txtquantity')[$i]           
         ]);
         $stocks->save();       
     endfor;
-     return redirect('/stocks')->with('success', 'Stock updated successfully');
-
-         
+     return redirect('/stocks')->with('success', 'Stock updated successfully');         
 /*
 
         $stocks = Stocks::find($id);          

@@ -23,20 +23,20 @@
         @csrf
         <div class="form-group">
             <label for="txtname">Name:</label>
-            <input type="text" class="form-control" id="txtname" placeholder="Enter Name" name="txtname" value="{{ $users->name }}">
+            <input type="text" class="form-control" required id="txtname" required placeholder="Enter Name" name="txtname" value="{{ $users->name }}">
         </div>
         <div class="form-group">
             <label for="txtemail">Email:</label>
-            <input type="text" class="form-control" id="txtemail" placeholder="Enter Email" name="txtemail" value="{{ $users->email }}">
+            <input type="text" class="form-control" required id="txtemail" required placeholder="Enter Email" name="txtemail" value="{{ $users->email }}">
         </div>
            <div class="form-group">
             <label for="image">Image:</label>
-            <input type="file" class="form-control" id="image"  name="image">
+            <input type="file" class="form-control"  id="image"  name="image">
         </div>
 
         <div class="form-group">
             <label for="txtpassword">Password:</label>
-            <input type="password" class="form-control" id="txtpassword" placeholder="Enter Password" name="txtpassword" value="{{ $users->password }}">
+            <input type="password" class="form-control" required id="txtpassword" required placeholder="Enter Password" name="txtpassword" value="{{ $users->password }}">
         </div>        
         <button type="submit" class="btn btn-default">Submit</button>
     </form>

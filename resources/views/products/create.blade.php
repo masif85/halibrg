@@ -43,26 +43,26 @@
         </div>
         <div class="form-group">
             <label for="txtname">Name:</label>
-            <input type="text" class="form-control" id="txtname" placeholder="Enter  Name" name="txtname">
+            <input type="text" class="form-control" required id="txtname" placeholder="Enter  Name" name="txtname">
         </div>
         <div class="form-group">
             <label for="txtcode">Code:</label>
-            <input type="text" class="form-control" id="txtcode" placeholder="Enter UNIQUE Code" name="txtcode">
+            <input type="text" class="form-control" required id="txtcode" placeholder="Enter UNIQUE Code" name="txtcode">
         </div>
 		
 		 <div class="form-group">
             <label for="txtcost">Cost:</label>
-            <input type="number" class="form-control" id="txtcost" placeholder="Enter COST" name="txtcost">
+            <input type="number" class="form-control" required id="txtcost" placeholder="Enter COST" name="txtcost">
         </div>
 		
 		 <div class="form-group">
             <label for="txtdesc">Description:</label>
-            <textarea  class="form-control" id="txtdesc" placeholder="Enter Description" name="txtdesc"></textarea>
+            <textarea  class="form-control" id="txtdesc" required placeholder="Enter Description" name="txtdesc"></textarea>
         </div>
 
          <div class="form-group">
             <label for="image">Image:</label>
-            <input type="file" class="form-control" id="image"  name="image">
+            <input type="file" class="form-control" required id="image"  name="image">
         </div>      
         <button type="submit" class="btn btn-default">Submit</button>
     </form>

@@ -22,7 +22,7 @@
         @csrf
         <div class="form-group">
             <label for="txtname">Name:</label>
-            <input type="text" class="form-control" id="txtname" placeholder="Enter  Name" name="txtname">
+            <input type="text" class="form-control" required id="txtname" placeholder="Enter  Name" name="txtname">
         </div>
  
         <button type="submit" class="btn btn-default">Submit</button>

@@ -3,32 +3,42 @@
 @section('content')
     <div class="row">
         <div class="col-lg-11">
-                <h2>Detail for {{ $stocks->name }}</h2>
+                <h2>Detail for {{ $product_data->name }}</h2>
         </div>
        
     </div>
     <table class="table table-bordered">
+	 @php
+            $sr = 1;
+			
+        @endphp
+	 @foreach ($stocks as $stock)
+     
         <tr>
-            <th>Product Name:</th>
-            <td>{{ $stocks->product_name }}</td>
-        </tr>
-        <tr>
-            <th>Supplier Name:</th>
-            <td>{{ $stocks->supplier_name }}</td>
+            <th> Supplier Name: {{$sr}}</th>
+            <td>{{ $stock->supplier_name }}</td>
         </tr>
 		  <tr>
             <th>Quantity:</th>
-            <td>{{ $stocks->quantity }}</td>
+            <td>{{ $stock->quantity }}</td>
         </tr>
 		 <tr>
             <th>Created at:</th>
-            <td>{{ $stocks->created_at }}</td>
+            <td>{{ $stock->created_at }}</td>
         </tr>
 		 <tr>
             <th>Updated at:</th>
-            <td>{{ $stocks->updated_at }}</td>
+            <td>{{ $stock->updated_at }}</td>
         </tr>
-		
+		 <tr>
+            <th colspan="2">&nbsp;</th>
+            
+        </tr>
+		<div class="clearfix separator"></div>
+		 @php
+            $sr++;
+        @endphp
+		@endforeach
 		 
        
  
