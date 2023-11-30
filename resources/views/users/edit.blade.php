@@ -36,7 +36,7 @@
 
         <div class="form-group">
             <label for="txtpassword">Password:</label>
-            <input type="password" class="form-control" required id="txtpassword" required placeholder="Enter Password" name="txtpassword" value="{{ $users->password }}">
+            <input type="password" class="form-control" required id="txtpassword" required placeholder="Enter Password" name="txtpassword" value="">
         </div>        
         <button type="submit" class="btn btn-default">Submit</button>
     </form>

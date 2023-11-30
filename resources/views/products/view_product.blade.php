@@ -128,7 +128,7 @@ a:hover {
                          @foreach ($products as $pd)
                         <div class="col-md-6 col-lg-4 col-xl-3">
                   <div id="product-1" class="single-product">
-                    <img src="{{ asset('uploads/products/')}}/{{$pd->image}}" width="250">
+                    <img src="{{ asset('uploads/products/')}}/{{$pd->image}}" height="300" width="250">
    <div class="part-1">
     <ul>
     <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
@@ -145,6 +145,7 @@ a:hover {
      </div>
     </div>
     </div>
+	<div class="col-lg-1"></div>
     @endforeach
  </div>
   </div>

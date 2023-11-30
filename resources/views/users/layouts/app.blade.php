@@ -88,12 +88,8 @@
          
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">Account Settings</span>
-                 <div class="dropdown-divider"></div>
-          <a href="#" data-toggle="modal" data-target="#modal-settings" class="dropdown-item">
-            <i class="fa-solid fa-shield fas fa-user"></i>&nbsp; Account Settings
-           
-          </a>
+             
+         
           <div class="dropdown-divider"></div>
 
           <div class="dropdown-divider"></div>
@@ -278,55 +274,16 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    <div class="content">
+	
+    <div class="content" style="    margin: 0 auto 0;
+    width: 96%;
+    background: white;
+    height: 90vh;
+    border-radius: 5px;">
+	<section class="content">
     @yield('content')
+	</section>
 </div>
-    <section class="content">
-      <div class="modal fade" id="modal-settings">
-        <div class="modal-dialog modal-settings">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-titles">Account Settings</h1>                
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-bodys">
-              <form role="form" method="post" action="" enctype="multipart/form-data">
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">User Name</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" name="username" value="" placeholder="Enter New Or leave current User Name">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">New Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Enter New Password or leave blank">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputFile">Profile Pic</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" name="profile_pic" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose Profile Picture</label>
-                      </div>                    
-                    </div>
-                  </div>                
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Update</button>
-                     <button type="submit" class=" btn btn-primary btn-danger" data-dismiss="modal" >Cancel</button>
-                </div>                
-              </form>   
-            </div>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>        
-    </section>
-
-
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
