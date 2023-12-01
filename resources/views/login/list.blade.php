@@ -19,7 +19,7 @@
    <h3 align="center">Login Screen</h3><br />
 
    @if(isset(Auth::user()->email))
-    <script>window.location="/main/successlogin";</script>
+    <script>window.location="/products/view";</script>
    @endif
 
    @if ($message = Session::get('error'))
